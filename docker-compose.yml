@@ -6,6 +6,7 @@ services:
       - "8091:8080"
     env_file:
       - ./ApiBackendDia/my-go-project/.env
+    restart: unless-stopped
     networks:
       - app-network
   frontend:
@@ -14,6 +15,7 @@ services:
       - "8092:80"
     depends_on:
       - backend
+    restart: unless-stopped
     networks:
       - app-network
 
